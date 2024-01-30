@@ -27,7 +27,7 @@ public class FileServiceMinioImpl implements FileService {
     private String bucketName;
 
     @Override
-    public String store(MultipartFile file, String serverFilename) {
+    public String store(final MultipartFile file, final String serverFilename) {
         if (file.isEmpty()) {
             throw new StorageException("Failed to store empty file.");
         }
@@ -46,6 +46,7 @@ public class FileServiceMinioImpl implements FileService {
                 .build();
             minioClient.putObject(args);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new StorageException("Error while storing file in Minio.");
         }
 
