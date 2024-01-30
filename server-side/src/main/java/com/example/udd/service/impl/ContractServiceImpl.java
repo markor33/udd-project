@@ -13,17 +13,18 @@ import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHitSupport;
-import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.Criteria;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
 import static com.example.udd.util.ExtractDocumentContent.extractDocumentContent;
+import static com.example.udd.util.SearchUtils.getCriteriaFromMap;
 
 @Service
 @RequiredArgsConstructor
@@ -34,26 +35,17 @@ public class ContractServiceImpl implements ContractService {
     private final ElasticsearchOperations elasticsearchTemplate;
 
     @Override
-    public Page<ContractIndex> searchByFirstAndLastName(
-            final String firstName,
-            final String lastName,
+    public Page<ContractIndex> simpleSearch(
+            final Map<String, String> criteriaTokens,
             final Pageable pageable
     ) {
-        var query = new CriteriaQuery(
-                new Criteria("firstName").is(firstName).and("lastName").is(lastName)
-        );
+        var criteria = getCriteriaFromMap(criteriaTokens);
+        if (criteria == null) {
+            return Page.empty();
+        }
 
-        var searchQueryBuilder =  new NativeQueryBuilder().withQuery(query).withPageable(pageable);
-
-        return runQuery(searchQueryBuilder.build());
-    }
-
-    private Page<ContractIndex> runQuery(final NativeQuery searchQuery) {
-
-        var searchHits = elasticsearchTemplate.search(searchQuery, ContractIndex.class,
-                IndexCoordinates.of("contract"));
-
-        var searchHitsPaged = SearchHitSupport.searchPageFor(searchHits, searchQuery.getPageable());
+        var searchHits = elasticsearchTemplate.search(new CriteriaQuery(criteria), ContractIndex.class);
+        var searchHitsPaged = SearchHitSupport.searchPageFor(searchHits, pageable);
 
         return (Page<ContractIndex>) SearchHitSupport.unwrapSearchHits(searchHitsPaged);
     }

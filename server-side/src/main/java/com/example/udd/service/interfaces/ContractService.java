@@ -7,8 +7,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Map;
+
 public interface ContractService {
-    Page<ContractIndex> searchByFirstAndLastName(final String firstName, final String lastName, Pageable pageable);
+    Page<ContractIndex> simpleSearch(
+            final Map<String, String> criteria,
+            final Pageable pageable);
     ParsedContractDTO parseDocument(final MultipartFile documentFile);
     String indexDocument(
             final MultipartFile documentFile,
