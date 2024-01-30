@@ -21,19 +21,19 @@ public class ContractIndex {
     @Id
     private UUID id;
 
-    @Field(type = FieldType.Text, store = true, name = "firstName")
+    @Field(type = FieldType.Text, store = true, name = "firstName", analyzer = "serbian")
     private String firstName;
 
-    @Field(type = FieldType.Text, store = true, name = "lastName")
+    @Field(type = FieldType.Text, store = true, name = "lastName", analyzer = "serbian")
     private String lastName;
 
-    @Field(type = FieldType.Text, store = true, name = "governmentName")
+    @Field(type = FieldType.Text, store = true, name = "governmentName", analyzer = "serbian")
     private String governmentName;
 
-    @Field(type = FieldType.Text, store = true, name = "levelOfAdministration")
+    @Field(type = FieldType.Text, store = true, name = "levelOfAdministration", analyzer = "serbian")
     private String levelOfAdministration;
 
-    @Field(type = FieldType.Text, store = true, name = "content")
+    @Field(type = FieldType.Text, store = true, name = "content", analyzer = "serbian")
     private String content;
 
     @Field(type = FieldType.Text, store = true, name = "serverFilename", index = false)
