@@ -1,9 +1,7 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  $END$
+  <h1>Hello</h1>
 </template>
 
 <style scoped>
