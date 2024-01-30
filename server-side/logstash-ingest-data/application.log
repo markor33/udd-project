@@ -1,296 +1,80 @@
-2024-01-29T20:04:41.675+01:00  INFO 14772 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 14772 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:04:41.679+01:00  INFO 14772 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:04:42.212+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:04:42.213+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:04:42.244+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:04:42.371+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:04:42.372+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:04:42.385+01:00  INFO 14772 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:04:42.386+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:04:42.392+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:04:42.392+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:04:42.399+01:00  INFO 14772 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:04:42.400+01:00  INFO 14772 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:04:42.400+01:00  INFO 14772 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:04:42.405+01:00  INFO 14772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:04:42.560+01:00  INFO 14772 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:04:42.828+01:00  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:04:42.841+01:00  INFO 14772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:04:42.841+01:00  INFO 14772 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:04:42.912+01:00  INFO 14772 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:04:42.912+01:00  INFO 14772 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1193 ms
-2024-01-29T20:04:43.022+01:00  INFO 14772 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:04:43.094+01:00  INFO 14772 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:04:43.097+01:00  INFO 14772 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:04:43.322+01:00  INFO 14772 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:04:43.344+01:00  INFO 14772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:04:43.509+01:00  INFO 14772 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ea3839e
-2024-01-29T20:04:43.510+01:00  INFO 14772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:04:43.554+01:00  WARN 14772 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:04:44.159+01:00  INFO 14772 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:04:44.203+01:00  INFO 14772 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:04:46.200+01:00  INFO 14772 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:04:46.370+01:00  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:04:46.378+01:00  INFO 14772 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 5.021 seconds (process running for 5.916)
-2024-01-29T20:05:23.164+01:00  INFO 14772 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:05:23.164+01:00  INFO 14772 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:05:23.165+01:00  INFO 14772 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T20:05:33.672+01:00 ERROR 14772 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/172.18.0.5:9200]] with root cause
-
-java.net.ConnectException: Timeout connecting to [/172.18.0.5:9200]
-	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2024-01-29T20:06:10.774+01:00  INFO 14772 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:06:10.776+01:00  INFO 14772 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T20:06:10.780+01:00  INFO 14772 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-01-29T20:07:34.448+01:00  INFO 9748 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 9748 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:07:34.449+01:00  INFO 9748 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:07:35.054+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:07:35.055+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:07:35.086+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:07:35.204+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:07:35.204+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:07:35.218+01:00  INFO 9748 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:07:35.219+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:07:35.224+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:07:35.224+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:07:35.230+01:00  INFO 9748 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:07:35.231+01:00  INFO 9748 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:07:35.231+01:00  INFO 9748 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:07:35.236+01:00  INFO 9748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:07:35.378+01:00  INFO 9748 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:07:35.657+01:00  INFO 9748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:07:35.665+01:00  INFO 9748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:07:35.665+01:00  INFO 9748 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:07:35.740+01:00  INFO 9748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:07:35.740+01:00  INFO 9748 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1259 ms
-2024-01-29T20:07:35.846+01:00  INFO 9748 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:07:35.903+01:00  INFO 9748 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:07:35.905+01:00  INFO 9748 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:07:36.134+01:00  INFO 9748 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:07:36.156+01:00  INFO 9748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:07:36.285+01:00  INFO 9748 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b508371
-2024-01-29T20:07:36.286+01:00  INFO 9748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:07:36.322+01:00  WARN 9748 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:07:36.919+01:00  INFO 9748 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:07:36.961+01:00  INFO 9748 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:07:38.936+01:00  INFO 9748 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:07:39.112+01:00  INFO 9748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:07:39.120+01:00  INFO 9748 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 4.966 seconds (process running for 8.268)
-2024-01-29T20:08:02.470+01:00  INFO 9748 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:08:02.470+01:00  INFO 9748 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:08:02.471+01:00  INFO 9748 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T20:08:12.891+01:00 ERROR 9748 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/172.18.0.5:9200]] with root cause
-
-java.net.ConnectException: Timeout connecting to [/172.18.0.5:9200]
-	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2024-01-29T20:08:17.527+01:00  INFO 9748 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:08:17.528+01:00  INFO 9748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T20:08:17.530+01:00  INFO 9748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-01-29T20:11:40.868+01:00  INFO 4164 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 4164 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:11:40.870+01:00  INFO 4164 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:11:41.338+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:11:41.339+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:11:41.367+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:11:41.489+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:11:41.489+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:11:41.505+01:00  INFO 4164 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:11:41.505+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:11:41.512+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:11:41.512+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:11:41.518+01:00  INFO 4164 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:11:41.519+01:00  INFO 4164 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:11:41.519+01:00  INFO 4164 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:11:41.526+01:00  INFO 4164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:11:41.671+01:00  INFO 4164 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:11:41.911+01:00  INFO 4164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:11:41.923+01:00  INFO 4164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:11:41.923+01:00  INFO 4164 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:11:41.995+01:00  INFO 4164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:11:41.996+01:00  INFO 4164 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1096 ms
-2024-01-29T20:11:42.102+01:00  INFO 4164 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:11:42.142+01:00  INFO 4164 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:11:42.144+01:00  INFO 4164 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:11:42.339+01:00  INFO 4164 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:11:42.359+01:00  INFO 4164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:11:42.504+01:00  INFO 4164 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@467af68c
-2024-01-29T20:11:42.505+01:00  INFO 4164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:11:42.536+01:00  WARN 4164 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:11:43.107+01:00  INFO 4164 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:11:43.150+01:00  INFO 4164 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:11:44.968+01:00  INFO 4164 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:11:45.155+01:00  INFO 4164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:11:45.165+01:00  INFO 4164 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 4.614 seconds (process running for 5.103)
-2024-01-29T20:12:04.262+01:00  INFO 4164 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:12:04.263+01:00  INFO 4164 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:12:04.264+01:00  INFO 4164 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T20:12:14.702+01:00 ERROR 4164 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/172.18.0.3:9200]] with root cause
-
-java.net.ConnectException: Timeout connecting to [/172.18.0.3:9200]
-	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2024-01-29T20:14:28.930+01:00  INFO 4164 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:14:28.931+01:00  INFO 4164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T20:14:28.933+01:00  INFO 4164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-01-29T20:14:30.853+01:00  INFO 10948 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 10948 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:14:30.855+01:00  INFO 10948 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:14:31.214+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:14:31.214+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:14:31.244+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:14:31.370+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:14:31.370+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:14:31.384+01:00  INFO 10948 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:14:31.384+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:14:31.389+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:14:31.390+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:14:31.396+01:00  INFO 10948 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:14:31.397+01:00  INFO 10948 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:14:31.397+01:00  INFO 10948 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:14:31.402+01:00  INFO 10948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:14:31.546+01:00  INFO 10948 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:14:31.784+01:00  INFO 10948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:14:31.795+01:00  INFO 10948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:14:31.796+01:00  INFO 10948 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:14:31.867+01:00  INFO 10948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:14:31.867+01:00  INFO 10948 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 981 ms
-2024-01-29T20:14:31.967+01:00  INFO 10948 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:14:32.013+01:00  INFO 10948 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:14:32.014+01:00  INFO 10948 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:14:32.214+01:00  INFO 10948 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:14:32.234+01:00  INFO 10948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:14:32.345+01:00  INFO 10948 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41a23470
-2024-01-29T20:14:32.346+01:00  INFO 10948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:14:32.379+01:00  WARN 10948 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:14:32.940+01:00  INFO 10948 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:14:32.987+01:00  INFO 10948 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:14:34.761+01:00  INFO 10948 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:14:34.941+01:00  INFO 10948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:14:34.950+01:00  INFO 10948 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 4.499 seconds (process running for 5.087)
-2024-01-29T20:15:14.871+01:00  INFO 10948 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:15:14.871+01:00  INFO 10948 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:15:14.872+01:00  INFO 10948 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T20:15:25.286+01:00 ERROR 10948 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Timeout connecting to [/172.18.0.5:9200]] with root cause
-
-java.net.ConnectException: Timeout connecting to [/172.18.0.5:9200]
-	at org.apache.http.nio.pool.RouteSpecificPool.timeout(RouteSpecificPool.java:169) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool.requestTimeout(AbstractNIOConnPool.java:630) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.nio.pool.AbstractNIOConnPool$InternalSessionRequestCallback.timeout(AbstractNIOConnPool.java:896) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.SessionRequestImpl.timeout(SessionRequestImpl.java:198) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processTimeouts(DefaultConnectingIOReactor.java:213) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor.processEvents(DefaultConnectingIOReactor.java:158) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor.execute(AbstractMultiworkerIOReactor.java:351) ~[httpcore-nio-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager.execute(PoolingNHttpClientConnectionManager.java:221) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase$1.run(CloseableHttpAsyncClientBase.java:64) ~[httpasyncclient-4.1.5.jar:4.1.5]
-	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2024-01-29T20:16:19.014+01:00  INFO 10948 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:16:19.015+01:00  INFO 10948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T20:16:19.019+01:00  INFO 10948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-01-29T20:17:35.230+01:00  INFO 16768 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 16768 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:17:35.231+01:00  INFO 16768 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:17:35.553+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:17:35.554+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:17:35.581+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:17:35.695+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:17:35.695+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:17:35.708+01:00  INFO 16768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:17:35.709+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:17:35.714+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:17:35.714+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:17:35.721+01:00  INFO 16768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:17:35.721+01:00  INFO 16768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:17:35.722+01:00  INFO 16768 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:17:35.726+01:00  INFO 16768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:17:35.877+01:00  INFO 16768 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:17:36.115+01:00  INFO 16768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:17:36.121+01:00  INFO 16768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:17:36.121+01:00  INFO 16768 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:17:36.188+01:00  INFO 16768 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:17:36.188+01:00  INFO 16768 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 928 ms
-2024-01-29T20:17:36.283+01:00  INFO 16768 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:17:36.324+01:00  INFO 16768 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:17:36.325+01:00  INFO 16768 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:17:36.515+01:00  INFO 16768 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:17:36.533+01:00  INFO 16768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:17:36.647+01:00  INFO 16768 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@467af68c
-2024-01-29T20:17:36.648+01:00  INFO 16768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:17:36.680+01:00  WARN 16768 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:17:37.214+01:00  INFO 16768 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:17:37.255+01:00  INFO 16768 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:17:38.887+01:00  INFO 16768 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:17:39.063+01:00  INFO 16768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:17:39.072+01:00  INFO 16768 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 4.133 seconds (process running for 4.582)
-2024-01-29T20:18:09.557+01:00  INFO 16768 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:18:09.557+01:00  INFO 16768 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:18:09.558+01:00  INFO 16768 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T20:18:38.480+01:00  INFO 16768 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:18:38.482+01:00  INFO 16768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T20:18:38.486+01:00  INFO 16768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-01-29T20:23:08.977+01:00  INFO 14356 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 14356 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
-2024-01-29T20:23:08.978+01:00  INFO 14356 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
-2024-01-29T20:23:09.555+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:23:09.556+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:23:09.595+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 3 Elasticsearch repository interfaces.
-2024-01-29T20:23:09.746+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:23:09.747+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2024-01-29T20:23:09.765+01:00  INFO 14356 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
-2024-01-29T20:23:09.765+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2024-01-29T20:23:09.774+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-01-29T20:23:09.775+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-29T20:23:09.788+01:00  INFO 14356 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:23:09.790+01:00  INFO 14356 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:23:09.791+01:00  INFO 14356 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
-2024-01-29T20:23:09.800+01:00  INFO 14356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interfaces.
-2024-01-29T20:23:09.997+01:00  INFO 14356 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
-2024-01-29T20:23:10.268+01:00  INFO 14356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-29T20:23:10.275+01:00  INFO 14356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-29T20:23:10.275+01:00  INFO 14356 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-01-29T20:23:10.345+01:00  INFO 14356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-01-29T20:23:10.345+01:00  INFO 14356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1333 ms
-2024-01-29T20:23:10.452+01:00  INFO 14356 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-29T20:23:10.497+01:00  INFO 14356 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-01-29T20:23:10.499+01:00  INFO 14356 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2024-01-29T20:23:10.698+01:00  INFO 14356 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-01-29T20:23:10.716+01:00  INFO 14356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-29T20:23:10.822+01:00  INFO 14356 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30afb481
-2024-01-29T20:23:10.823+01:00  INFO 14356 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-29T20:23:10.855+01:00  WARN 14356 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-01-29T20:23:11.406+01:00  INFO 14356 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-01-29T20:23:11.447+01:00  INFO 14356 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T20:23:13.351+01:00  INFO 14356 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2024-01-29T20:23:13.532+01:00  INFO 14356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2024-01-29T20:23:13.540+01:00  INFO 14356 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 5.06 seconds (process running for 5.749)
-2024-01-29T20:23:27.995+01:00  INFO 14356 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-29T20:23:27.995+01:00  INFO 14356 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-29T20:23:27.996+01:00  INFO 14356 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-29T23:06:35.087+01:00  INFO 14356 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-01-29T23:06:35.102+01:00  INFO 14356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-01-29T23:06:35.106+01:00  INFO 14356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-01-30T16:06:14.379+01:00  INFO 11512 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 11512 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
+2024-01-30T16:06:14.383+01:00  INFO 11512 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-01-30T16:06:14.956+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:06:14.957+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-01-30T16:06:14.992+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 Elasticsearch repository interfaces.
+2024-01-30T16:06:15.127+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:06:15.127+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-01-30T16:06:15.141+01:00  INFO 11512 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2024-01-30T16:06:15.141+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-01-30T16:06:15.147+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:06:15.147+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-30T16:06:15.154+01:00  INFO 11512 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:06:15.154+01:00  INFO 11512 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:06:15.155+01:00  INFO 11512 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:06:15.171+01:00  INFO 11512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interfaces.
+2024-01-30T16:06:15.318+01:00  INFO 11512 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
+2024-01-30T16:06:15.591+01:00  INFO 11512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-01-30T16:06:15.598+01:00  INFO 11512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-30T16:06:15.598+01:00  INFO 11512 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-01-30T16:06:15.671+01:00  INFO 11512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-01-30T16:06:15.671+01:00  INFO 11512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1250 ms
+2024-01-30T16:06:15.780+01:00  INFO 11512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-30T16:06:15.841+01:00  INFO 11512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-01-30T16:06:15.843+01:00  INFO 11512 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-01-30T16:06:16.072+01:00  INFO 11512 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-30T16:06:16.093+01:00  INFO 11512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-30T16:06:16.229+01:00  INFO 11512 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e1add6f
+2024-01-30T16:06:16.230+01:00  INFO 11512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-30T16:06:16.269+01:00  WARN 11512 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-30T16:06:16.859+01:00  INFO 11512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-30T16:06:16.903+01:00  INFO 11512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30T16:06:18.345+01:00  INFO 11512 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-01-30T16:06:18.515+01:00  INFO 11512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2024-01-30T16:06:18.523+01:00  INFO 11512 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 4.477 seconds (process running for 5.474)
+2024-01-30T16:06:50.919+01:00  INFO 11512 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30T16:06:50.919+01:00  INFO 11512 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-30T16:06:50.920+01:00  INFO 11512 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-01-30T16:09:20.121+01:00  INFO 11512 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30T16:09:20.123+01:00  INFO 11512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-01-30T16:09:20.126+01:00  INFO 11512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-01-30T16:09:24.344+01:00  INFO 5920 --- [main] com.example.udd.UDDApplication           : Starting UDDApplication using Java 21.0.1 with PID 5920 (D:\Marko\FAKS\5God\UDD\udd-project\server-side\target\classes started by Marko in D:\Marko\FAKS\5God\UDD\udd-project\server-side)
+2024-01-30T16:09:24.345+01:00  INFO 5920 --- [main] com.example.udd.UDDApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-01-30T16:09:24.717+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:09:24.718+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-01-30T16:09:24.745+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 Elasticsearch repository interfaces.
+2024-01-30T16:09:24.857+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:09:24.857+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-01-30T16:09:24.870+01:00  INFO 5920 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.udd.respository.DummyRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2024-01-30T16:09:24.871+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-01-30T16:09:24.875+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-30T16:09:24.876+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-30T16:09:24.882+01:00  INFO 5920 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.ContractIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:09:24.882+01:00  INFO 5920 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.DummyIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:09:24.883+01:00  INFO 5920 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.udd.indexrepository.LawIndexRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-01-30T16:09:24.888+01:00  INFO 5920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
+2024-01-30T16:09:25.015+01:00  INFO 5920 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f5494d03-8a84-377e-9b6e-809b719ec891
+2024-01-30T16:09:25.274+01:00  INFO 5920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-01-30T16:09:25.281+01:00  INFO 5920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-30T16:09:25.282+01:00  INFO 5920 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-01-30T16:09:25.353+01:00  INFO 5920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-01-30T16:09:25.353+01:00  INFO 5920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 980 ms
+2024-01-30T16:09:25.452+01:00  INFO 5920 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-30T16:09:25.502+01:00  INFO 5920 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-01-30T16:09:25.504+01:00  INFO 5920 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-01-30T16:09:25.724+01:00  INFO 5920 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-30T16:09:25.744+01:00  INFO 5920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-30T16:09:25.842+01:00  INFO 5920 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@8bc0696
+2024-01-30T16:09:25.843+01:00  INFO 5920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-30T16:09:25.866+01:00  WARN 5920 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-30T16:09:26.435+01:00  INFO 5920 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-30T16:09:26.462+01:00  INFO 5920 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30T16:09:27.722+01:00  INFO 5920 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-01-30T16:09:27.887+01:00  INFO 5920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2024-01-30T16:09:27.895+01:00  INFO 5920 --- [main] com.example.udd.UDDApplication           : Started UDDApplication in 3.852 seconds (process running for 4.347)
+2024-01-30T16:09:42.097+01:00  INFO 5920 --- [http-nio-0.0.0.0-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30T16:09:42.098+01:00  INFO 5920 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-30T16:09:42.098+01:00  INFO 5920 --- [http-nio-0.0.0.0-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-01-30T16:12:05.561+01:00  INFO 5920 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-30T16:12:05.563+01:00  INFO 5920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-01-30T16:12:05.566+01:00  INFO 5920 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
