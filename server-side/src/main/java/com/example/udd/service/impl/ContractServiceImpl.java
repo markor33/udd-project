@@ -19,6 +19,8 @@ import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Objects;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import static com.example.udd.util.ExtractDocumentContent.extractDocumentContent;
@@ -83,8 +85,37 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public GetObjectResponse loadAsResource(String serverFilename) {
-        return null;
+    public String indexDocument(
+            final MultipartFile documentFile,
+            final String firstName,
+            final String lastName,
+            final String governmentName,
+            final String levelOfAdministration,
+            final String street,
+            final String number,
+            final String city
+    ) {
+        var title = Objects.requireNonNull(documentFile.getOriginalFilename()).split("\\.")[0];
+        var documentContent = extractDocumentContent(documentFile);
+        var serverFilename = fileService.store(documentFile, UUID.randomUUID().toString());
+
+        var contract = new ContractIndex(
+                title,
+                firstName,
+                lastName,
+                governmentName,
+                levelOfAdministration,
+                documentContent,
+                serverFilename
+        );
+        contractIndexRepository.save(contract);
+
+        return serverFilename;
+    }
+
+    @Override
+    public GetObjectResponse loadAsResource(final String serverFilename) {
+        return fileService.loadAsResource(serverFilename);
     }
 
 }
