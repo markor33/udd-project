@@ -40,10 +40,7 @@ public class LawController {
     public DummyDocumentFileResponseDTO addDocumentFile(
             final @ModelAttribute DummyDocumentFileDTO documentFile
     ) {
-        var documentId = lawService.indexDocument(documentFile.file());
-        return new DummyDocumentFileResponseDTO(documentId);
+        return new DummyDocumentFileResponseDTO(lawService.indexDocument(documentFile.file()));
     }
-
-
 
 }
