@@ -21,6 +21,9 @@ public class ContractIndex {
     @Id
     private UUID id;
 
+    @Field(type = FieldType.Text, store = true, name = "title", analyzer = "serbian")
+    private String title;
+
     @Field(type = FieldType.Text, store = true, name = "firstName")
     private String firstName;
 
@@ -42,4 +45,23 @@ public class ContractIndex {
     @GeoPointField
     @Field(store = true, name = "location")
     private GeoPoint location;
+
+    public ContractIndex(
+            final String title,
+            final String firstName,
+            final String lastName,
+            final String governmentName,
+            final String levelOfAdministration,
+            final String content,
+            final String serverFilename
+    ) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.governmentName = governmentName;
+        this.levelOfAdministration = levelOfAdministration;
+        this.content = content;
+        this.serverFilename = serverFilename;
+    }
 }
