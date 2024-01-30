@@ -1,0 +1,25 @@
+{
+  "analysis": {
+    "analyzer": {
+      "serbian": {
+        "tokenizer": "standard",
+        "filter": [
+          "lowercase",
+          "serbian_stop",
+          "serbian_stemmer",
+          "serbian_normalization"
+        ]
+      }
+    },
+    "filter": {
+      "serbian_stop": {
+        "type":       "stop",
+        "stopwords":  "_serbian_"
+      },
+      "serbian_stemmer": {
+        "type":       "stemmer",
+        "language":   "serbian"
+      }
+    }
+  }
+}
