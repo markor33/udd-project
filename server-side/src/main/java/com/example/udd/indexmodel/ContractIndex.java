@@ -1,5 +1,6 @@
 package com.example.udd.indexmodel;
 
+import com.example.udd.infrastructure.model.Location;
 import jakarta.persistence.Id;
 import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
@@ -56,7 +57,8 @@ public class ContractIndex {
             final String governmentName,
             final String levelOfAdministration,
             final String content,
-            final String serverFilename
+            final String serverFilename,
+            final Location location
     ) {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -66,5 +68,6 @@ public class ContractIndex {
         this.levelOfAdministration = levelOfAdministration;
         this.content = content;
         this.serverFilename = serverFilename;
+        this.location = new GeoPoint(location.getLat(), location.getLon());
     }
 }
