@@ -1,7 +1,10 @@
 package com.example.udd.util;
 
+import co.elastic.clients.elasticsearch._types.query_dsl.GeoDistanceQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import com.example.udd.dto.ContractDTO;
 import com.example.udd.indexmodel.ContractIndex;
+import com.example.udd.infrastructure.model.Location;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
@@ -20,6 +23,17 @@ public class SearchUtils {
                 .map(entry -> new Criteria(entry.getKey()).is(entry.getValue()))
                 .reduce(Criteria::and)
                 .orElse(null);
+    }
+
+    public static Query getLocationQuery(final Location location, final String distance) {
+        return new GeoDistanceQuery.Builder()
+                .field("location")
+                .distance(String.format("%skm", distance))
+                .location(geoLocation -> geoLocation
+                        .latlon(latLonGeoLocation -> latLonGeoLocation
+                                .lat(location.getLat())
+                                .lon(location.getLon())))
+                .build()._toQuery();
     }
 
     public static List<String> convertToPostfix(final List<String> expression) {

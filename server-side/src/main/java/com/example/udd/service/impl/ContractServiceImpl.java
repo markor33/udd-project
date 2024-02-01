@@ -5,6 +5,7 @@ import com.example.udd.dto.ContractDTO;
 import com.example.udd.dto.ParsedContractDTO;
 import com.example.udd.indexmodel.ContractIndex;
 import com.example.udd.indexrepository.ContractIndexRepository;
+import com.example.udd.infrastructure.interfaces.LocationIQ;
 import com.example.udd.service.interfaces.ContractService;
 import com.example.udd.service.interfaces.FileService;
 import io.minio.GetObjectResponse;
@@ -37,6 +38,7 @@ import static com.example.udd.util.SearchUtils.*;
 public class ContractServiceImpl implements ContractService {
 
     private final ContractIndexRepository contractIndexRepository;
+    private final LocationIQ locationIQ;
     private final FileService fileService;
     private final ElasticsearchOperations elasticsearchTemplate;
 
@@ -67,7 +69,12 @@ public class ContractServiceImpl implements ContractService {
             if (isOperand(token)) {
                 var field = token.split(":")[0];
                 var value = token.split(":")[1];
-                if (value.startsWith("\"") && value.endsWith("\""))
+                if (field.equals("location")) {
+                    var distance = token.split(":")[2];
+                    var location = locationIQ.search(value);
+                    queryStack.push(getLocationQuery(location, distance));
+                }
+                else if (value.startsWith("\"") && value.endsWith("\""))
                     queryStack.push(new MatchPhraseQuery.Builder().field(field).query(value).build()._toQuery());
                 else
                     queryStack.push(new MatchQuery.Builder().field(field).query(value).build()._toQuery());
@@ -172,6 +179,8 @@ public class ContractServiceImpl implements ContractService {
         var documentContent = extractDocumentContent(documentFile);
         var serverFilename = fileService.store(documentFile, UUID.randomUUID().toString());
 
+        var location = locationIQ.search(String.format("%s %s, %s, Serbia", street, number, city));
+
         var contract = new ContractIndex(
                 title,
                 firstName,
@@ -179,7 +188,8 @@ public class ContractServiceImpl implements ContractService {
                 governmentName,
                 levelOfAdministration,
                 documentContent,
-                serverFilename
+                serverFilename,
+                location
         );
         contractIndexRepository.save(contract);
 
