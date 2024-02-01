@@ -1,6 +1,7 @@
 package com.example.udd.indexmodel;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.Setter;
 import org.springframework.data.elasticsearch.annotations.*;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Getter

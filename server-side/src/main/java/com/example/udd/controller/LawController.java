@@ -2,6 +2,7 @@ package com.example.udd.controller;
 
 import com.example.udd.dto.DummyDocumentFileDTO;
 import com.example.udd.dto.DummyDocumentFileResponseDTO;
+import com.example.udd.dto.LawDTO;
 import com.example.udd.indexmodel.LawIndex;
 import com.example.udd.service.interfaces.LawService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class LawController {
 
     @PostMapping("/simple-search")
     @ResponseBody
-    public Page<LawIndex> simpleSearch(
+    public Page<LawDTO> simpleSearch(
             final @RequestBody Map<String, String> criteriaTokens,
             final Pageable pageable
     ) {
