@@ -1,5 +1,7 @@
 package com.example.udd.service.impl;
 
+import co.elastic.clients.elasticsearch._types.query_dsl.*;
+import com.example.udd.dto.ContractDTO;
 import com.example.udd.dto.ParsedContractDTO;
 import com.example.udd.indexmodel.ContractIndex;
 import com.example.udd.indexrepository.ContractIndexRepository;
@@ -8,23 +10,27 @@ import com.example.udd.service.interfaces.FileService;
 import io.minio.GetObjectResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHitSupport;
-import org.springframework.data.elasticsearch.core.query.Criteria;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
+import org.springframework.data.elasticsearch.core.query.CriteriaQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.HighlightQuery;
+import org.springframework.data.elasticsearch.core.query.highlight.Highlight;
+import org.springframework.data.elasticsearch.core.query.highlight.HighlightField;
+import org.springframework.data.elasticsearch.core.query.highlight.HighlightFieldParameters;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static com.example.udd.util.ExtractDocumentContent.extractDocumentContent;
-import static com.example.udd.util.SearchUtils.getCriteriaFromMap;
+import static com.example.udd.util.SearchUtils.*;
 
 @Service
 @RequiredArgsConstructor
@@ -48,6 +54,81 @@ public class ContractServiceImpl implements ContractService {
         var searchHitsPaged = SearchHitSupport.searchPageFor(searchHits, pageable);
 
         return (Page<ContractIndex>) SearchHitSupport.unwrapSearchHits(searchHitsPaged);
+    }
+
+    @Override
+    public Page<ContractDTO> advancedSearch(
+            final List<String> expression,
+            final Pageable pageable
+    ) {
+        var postfixExpression = convertToPostfix(expression);
+        var queryStack = new Stack<Query>();
+        for (String token : postfixExpression) {
+            if (isOperand(token)) {
+                var field = token.split(":")[0];
+                var value = token.split(":")[1];
+                if (value.startsWith("\"") && value.endsWith("\""))
+                    queryStack.push(new MatchPhraseQuery.Builder().field(field).query(value).build()._toQuery());
+                else
+                    queryStack.push(new MatchQuery.Builder().field(field).query(value).build()._toQuery());
+            }
+            else if (isOperator(token)) {
+                var right = queryStack.pop();
+                var left = queryStack.pop();
+
+                var boolQuery = new BoolQuery.Builder();
+
+                switch (token) {
+                    case "AND":
+                        boolQuery.must(left);
+                        boolQuery.must(right);
+                        break;
+                    case "OR":
+                        boolQuery.should(left);
+                        boolQuery.should(right);
+                        break;
+                    case "NOT":
+                        boolQuery.must(left);
+                        boolQuery.mustNot(right);
+                        break;
+                }
+                queryStack.push(boolQuery.build()._toQuery());
+            }
+        }
+
+        return runQuery(buildQuery(queryStack.pop(), pageable));
+    }
+
+    private Page<ContractDTO> runQuery(final NativeQuery query) {
+        var searchHits = elasticsearchTemplate.search(query, ContractIndex.class);
+        var searchHitsPaged = SearchHitSupport.searchPageFor(searchHits, query.getPageable());
+        var highlightedResults = new ArrayList<ContractDTO>();
+
+        for (SearchHit<ContractIndex> searchHit : searchHitsPaged) {
+            ContractIndex content = searchHit.getContent();
+            Map<String, List<String>> highlightFields = searchHit.getHighlightFields();
+
+            highlightedResults.add(new ContractDTO(content, highlightFields));
+        }
+
+        return new PageImpl<>(highlightedResults, query.getPageable(), searchHits.getTotalHits());
+    }
+
+    private NativeQuery buildQuery(final Query query, final Pageable pageable) {
+        var highlightFieldParameters = HighlightFieldParameters.builder()
+                .withFragmentSize(150)
+                .withNumberOfFragments(1)
+                .build();
+
+        return new NativeQueryBuilder()
+                        .withQuery(query)
+                        .withHighlightQuery(new HighlightQuery(
+                                new Highlight(List.of(
+                                        new HighlightField("content", highlightFieldParameters))),
+                                Object.class
+                        ))
+                        .withPageable(pageable)
+                .build();
     }
 
     private static final Pattern gov = Pattern.compile("Uprava\\s+za\\s+([\\w\\s]+),\\s+nivo\\s+uprave:\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+u\\s+daljem\\s+tekstu\\s+klijent.");

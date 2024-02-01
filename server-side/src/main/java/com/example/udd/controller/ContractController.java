@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Map;
+
+import static com.example.udd.util.SearchUtils.convertToPostfix;
 
 @RestController
 @RequestMapping("/contract")
@@ -32,6 +35,15 @@ public class ContractController {
             final Pageable pageable
     ) {
         return contractService.simpleSearch(criteriaTokens, pageable);
+    }
+
+    @PostMapping("/advanced-search")
+    @ResponseBody
+    public Page<ContractDTO> advancedSearch(
+            final @RequestBody AdvancedSearchRequestDTO request,
+            final Pageable pageable
+    ) {
+        return contractService.advancedSearch(request.expression(), pageable);
     }
 
     @GetMapping("/file/{filename}")
