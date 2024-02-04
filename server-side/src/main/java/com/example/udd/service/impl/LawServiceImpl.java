@@ -39,6 +39,9 @@ public class LawServiceImpl implements LawService {
 
     @Override
     public Page<LawDTO> simpleSearch(Map<String, String> criteriaTokens, Pageable pageable) {
+        if (criteriaTokens.isEmpty())
+            return lawIndexRepository.findAll(pageable).map(lawIndex -> new LawDTO(lawIndex, null));
+
         var criteria = getCriteriaFromMap(criteriaTokens);
         if (criteria == null) {
             return Page.empty();

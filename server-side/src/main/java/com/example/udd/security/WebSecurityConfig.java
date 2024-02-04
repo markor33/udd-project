@@ -52,6 +52,12 @@ public class WebSecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/contract/advanced-search").permitAll()
+                        .requestMatchers("/contract/simple-search").permitAll()
+                        .requestMatchers("/contract/file").permitAll()
+                        .requestMatchers("/contract/**").hasAuthority("CONTRACT")
+                        .requestMatchers("/law/simple-search").permitAll()
+                        .requestMatchers("/law/**").hasAuthority("LAW")
                         .anyRequest().authenticated()
                 )
                 .csrf((csrf) -> csrf

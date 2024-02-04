@@ -10,6 +10,8 @@ import com.example.udd.service.interfaces.ContractService;
 import com.example.udd.service.interfaces.FileService;
 import io.minio.GetObjectResponse;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -40,6 +42,7 @@ public class ContractServiceImpl implements ContractService {
     private final LocationIQ locationIQ;
     private final FileService fileService;
     private final ElasticsearchOperations elasticsearchTemplate;
+    private static final Logger logger = LoggerFactory.getLogger(ContractServiceImpl.class);
 
     @Override
     public Page<ContractIndex> simpleSearch(
@@ -62,6 +65,9 @@ public class ContractServiceImpl implements ContractService {
             final List<String> expression,
             final Pageable pageable
     ) {
+        if (expression.isEmpty())
+            return contractIndexRepository.findAll(pageable).map(contractIndex -> new ContractDTO(contractIndex, null));
+
         var postfixExpression = convertToPostfix(expression);
         var queryStack = new Stack<Query>();
         for (String token : postfixExpression) {
@@ -79,10 +85,15 @@ public class ContractServiceImpl implements ContractService {
                     queryStack.push(new MatchQuery.Builder().field(field).query(value).build()._toQuery());
             }
             else if (isOperator(token)) {
-                var right = queryStack.pop();
-                var left = queryStack.pop();
-
                 var boolQuery = new BoolQuery.Builder();
+
+                var right = queryStack.pop();
+                if (queryStack.isEmpty()) {
+                    boolQuery.mustNot(right);
+                    queryStack.push(boolQuery.build()._toQuery());
+                    continue;
+                }
+                var left = queryStack.pop();
 
                 switch (token) {
                     case "AND":
@@ -190,7 +201,11 @@ public class ContractServiceImpl implements ContractService {
                 serverFilename,
                 location
         );
+
+
+
         contractIndexRepository.save(contract);
+        logger.info("STATISTIC-LOG {}->{}->{}", city, firstName + ' ' + lastName, governmentName);
 
         return serverFilename;
     }
