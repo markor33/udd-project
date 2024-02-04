@@ -42,6 +42,7 @@ const goTo = (route: string) => {
           <v-list-item title="Search" @click="goTo('search-law')" prepend-icon="mdi-magnify"></v-list-item>
           <v-list-item v-if="role === 'LAW'" title="Index" @click="goTo('index-law')" prepend-icon="mdi-upload-outline"></v-list-item>
         </v-list-group>
+        <v-list-item title="Statistics" @click="goTo('statistics')" prepend-icon="mdi-chart-bar"></v-list-item>
       </v-list>
     </v-navigation-drawer>
 

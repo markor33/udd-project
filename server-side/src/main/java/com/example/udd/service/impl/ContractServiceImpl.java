@@ -10,6 +10,8 @@ import com.example.udd.service.interfaces.ContractService;
 import com.example.udd.service.interfaces.FileService;
 import io.minio.GetObjectResponse;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -40,6 +42,7 @@ public class ContractServiceImpl implements ContractService {
     private final LocationIQ locationIQ;
     private final FileService fileService;
     private final ElasticsearchOperations elasticsearchTemplate;
+    private static final Logger logger = LoggerFactory.getLogger(ContractServiceImpl.class);
 
     @Override
     public Page<ContractIndex> simpleSearch(
@@ -198,7 +201,11 @@ public class ContractServiceImpl implements ContractService {
                 serverFilename,
                 location
         );
+
+
+
         contractIndexRepository.save(contract);
+        logger.info("STATISTIC-LOG {}->{}->{}", city, firstName + ' ' + lastName, governmentName);
 
         return serverFilename;
     }
