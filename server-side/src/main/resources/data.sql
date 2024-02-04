@@ -1,0 +1,2 @@
+INSERT INTO roles (name) VALUES ('AGENCY'); --1
+INSERT INTO roles (name) VALUES ('GOVERNMENT'); --2

@@ -10,5 +10,5 @@ public class ParsedContractDTO {
     private String levelOfAdministration;
     private String street;
     private String number;
-    private String cit;
+    private String city;
 }
