@@ -1,3 +1,4 @@
 import HomeView from './Home.vue'
+import LoginView from './LoginView.vue'
 
-export  { HomeView }
+export  { LoginView, HomeView }

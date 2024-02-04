@@ -19,7 +19,6 @@ import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHitSupport;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
-import org.springframework.data.elasticsearch.core.query.CriteriaQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.HighlightQuery;
 import org.springframework.data.elasticsearch.core.query.highlight.Highlight;
 import org.springframework.data.elasticsearch.core.query.highlight.HighlightField;
@@ -138,8 +137,8 @@ public class ContractServiceImpl implements ContractService {
                 .build();
     }
 
-    private static final Pattern gov = Pattern.compile("Uprava\\s+za\\s+([\\w\\s]+),\\s+nivo\\s+uprave:\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+([\\w\\s]+),\\s+u\\s+daljem\\s+tekstu\\s+klijent.");
-    private static final Pattern signature = Pattern.compile("([\\w]+)\\s+([\\w]+)\\s+([\\w]+)\\s+([\\w]+)\\s+Potpisnik\\s+ugovora\\s+za\\s+klijenta");
+    private static final Pattern gov = Pattern.compile("Uprava\\s+za\\s+([\\p{L}\\s]+),\\s+nivo\\s+uprave:\\s+([\\p{L}\\s]+),\\s+([\\p{L}\\s]+),\\s+([\\w\\s]+),\\s+([\\p{L}\\s]+),\\s+u\\s+daljem\\s+tekstu\\s+klijent.");
+    private static final Pattern signature = Pattern.compile("([\\p{L}]+)\\s+([\\p{L}]+)\\s+([\\p{L}]+)\\s+([\\p{L}]+)\\s+Potpisnik\\s+ugovora\\s+za\\s+klijenta");
 
     @Override
     public ParsedContractDTO parseDocument(MultipartFile documentFile) {
@@ -152,7 +151,7 @@ public class ContractServiceImpl implements ContractService {
             parsedContract.setLevelOfAdministration(govMatch.group(2));
             parsedContract.setStreet(govMatch.group(3));
             parsedContract.setNumber(govMatch.group(4));
-            parsedContract.setCit(govMatch.group(5));
+            parsedContract.setCity(govMatch.group(5));
         }
 
         var signatureMatch = signature.matcher(documentContent);
