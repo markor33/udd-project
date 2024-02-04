@@ -62,6 +62,9 @@ public class ContractServiceImpl implements ContractService {
             final List<String> expression,
             final Pageable pageable
     ) {
+        if (expression.isEmpty())
+            return contractIndexRepository.findAll(pageable).map(contractIndex -> new ContractDTO(contractIndex, null));
+
         var postfixExpression = convertToPostfix(expression);
         var queryStack = new Stack<Query>();
         for (String token : postfixExpression) {
@@ -79,10 +82,15 @@ public class ContractServiceImpl implements ContractService {
                     queryStack.push(new MatchQuery.Builder().field(field).query(value).build()._toQuery());
             }
             else if (isOperator(token)) {
-                var right = queryStack.pop();
-                var left = queryStack.pop();
-
                 var boolQuery = new BoolQuery.Builder();
+
+                var right = queryStack.pop();
+                if (queryStack.isEmpty()) {
+                    boolQuery.mustNot(right);
+                    queryStack.push(boolQuery.build()._toQuery());
+                    continue;
+                }
+                var left = queryStack.pop();
 
                 switch (token) {
                     case "AND":

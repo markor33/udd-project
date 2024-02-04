@@ -32,7 +32,7 @@ const goTo = (route: string) => {
           <template #activator="{ props }">
             <v-list-item v-bind="props" title="Contract" prepend-icon="mdi-briefcase-outline"></v-list-item>
           </template>
-          <v-list-item title="Search" @click="" prepend-icon="mdi-magnify"></v-list-item>
+          <v-list-item title="Search" @click="goTo('search-contract')" prepend-icon="mdi-magnify"></v-list-item>
           <v-list-item v-if="role === 'CONTRACT'" title="Index" @click="goTo('index-contract')" prepend-icon="mdi-upload-outline"></v-list-item>
         </v-list-group>
         <v-list-group>

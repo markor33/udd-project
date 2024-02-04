@@ -4,7 +4,6 @@ import {useLawStore} from "@/store/law";
 import {storeToRefs} from "pinia";
 import {ref} from "vue";
 import {LawSearchRecord} from "@/models/law";
-import {is} from "@babel/types";
 
 const lawStore = useLawStore()
 
@@ -105,7 +104,7 @@ const downloadFile = async (law: LawSearchRecord) => {
 }
 
 .content-container {
-  height: 500px;
+  max-height: 500px;
   overflow-y: auto;
   border: 1px solid #ccc; /* Optional: add border for styling */
   border-radius: 5px;
