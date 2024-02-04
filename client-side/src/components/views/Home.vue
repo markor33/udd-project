@@ -28,19 +28,19 @@ const goTo = (route: string) => {
 
     <v-navigation-drawer>
       <v-list class="mt-10">
-        <v-list-group v-if="role === 'CONTRACT'">
+        <v-list-group>
           <template #activator="{ props }">
             <v-list-item v-bind="props" title="Contract" prepend-icon="mdi-briefcase-outline"></v-list-item>
           </template>
           <v-list-item title="Search" @click="" prepend-icon="mdi-magnify"></v-list-item>
-          <v-list-item title="Index" @click="goTo('index-contract')" prepend-icon="mdi-upload-outline"></v-list-item>
+          <v-list-item v-if="role === 'CONTRACT'" title="Index" @click="goTo('index-contract')" prepend-icon="mdi-upload-outline"></v-list-item>
         </v-list-group>
-        <v-list-group v-if="role === 'LAW'">
+        <v-list-group>
           <template #activator="{ props }">
             <v-list-item v-bind="props" title="Law" prepend-icon="mdi-scale-balance"></v-list-item>
           </template>
-          <v-list-item title="Search" @click="" prepend-icon="mdi-magnify"></v-list-item>
-          <v-list-item title="Index" @click="goTo('index-law')" prepend-icon="mdi-upload-outline"></v-list-item>
+          <v-list-item title="Search" @click="goTo('search-law')" prepend-icon="mdi-magnify"></v-list-item>
+          <v-list-item v-if="role === 'LAW'" title="Index" @click="goTo('index-law')" prepend-icon="mdi-upload-outline"></v-list-item>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>

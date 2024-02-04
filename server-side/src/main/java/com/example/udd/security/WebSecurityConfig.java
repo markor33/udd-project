@@ -52,7 +52,10 @@ public class WebSecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/api/contract/advanced-search").permitAll()
+                        .requestMatchers("/api/contract/simple-search").permitAll()
                         .requestMatchers("/contract/**").hasAuthority("CONTRACT")
+                        .requestMatchers("/api/law/simple-search").permitAll()
                         .requestMatchers("/law/**").hasAuthority("LAW")
                         .anyRequest().authenticated()
                 )

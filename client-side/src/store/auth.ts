@@ -13,6 +13,12 @@ export const useAuthStore = defineStore('auth', {
     accessToken: (state) => localStorage.getItem('token')
   },
   actions: {
+    init() {
+      const token = localStorage.getItem('token')
+      if (!token)
+        return
+      this.decodedToken = jwtDecode(token) as TokenContent
+    },
     async login(username: string, password: string) {
       try {
         const response = await axios.post<LoginResponse>('/api/auth/login', {
