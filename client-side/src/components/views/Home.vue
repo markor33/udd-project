@@ -28,6 +28,7 @@ const goTo = (route: string) => {
 
     <v-navigation-drawer>
       <v-list class="mt-10">
+        <v-list-item title="Search" @click="goTo('search-global')" prepend-icon="mdi-magnify"></v-list-item>
         <v-list-group>
           <template #activator="{ props }">
             <v-list-item v-bind="props" title="Contract" prepend-icon="mdi-briefcase-outline"></v-list-item>

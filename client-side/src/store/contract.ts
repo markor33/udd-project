@@ -7,6 +7,7 @@ export const useContractStore = defineStore('contract', {
   state: () => ({
     parsed: {} as ParsedContract,
     contracts: [] as ContractSearchRecord[],
+    selectedContract: {} as ContractSearchRecord,
     page: 1,
     itemsPerPage: 10,
     totalNumOfRecords: 0,
@@ -19,6 +20,9 @@ export const useContractStore = defineStore('contract', {
     query: (state) => state.expression.join(' ')
   },
   actions: {
+    setSelectedContract(contract: ContractSearchRecord) {
+      this.selectedContract = contract
+    },
     async getParsed(file: File) {
       const formData = new FormData()
       formData.append('file', file)

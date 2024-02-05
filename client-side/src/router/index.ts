@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import * as views from '@/components/views'
-import { IndexContract, IndexLaw, SearchContract, SearchLaw, Statistics } from "@/components";
+import { IndexContract, IndexLaw, SearchContract, SearchLaw, Statistics, SearchGlobal } from "@/components";
 
 const routes = [
   { path: '/',
     component: views.HomeView,
     children: [
-      { path: '/index-contract', component: IndexContract},
+      { path: '/search-global', component: SearchGlobal },
+      { path: '/index-contract', component: IndexContract },
       { path: '/index-law', component: IndexLaw },
       { path: '/search-law', component: SearchLaw },
       { path: '/search-contract', component: SearchContract },
