@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
 import axios from "axios";
-import {LawSearchRecord, LawSearchResponse} from "@/models/law";
+import {GlobalDocSearchRecord, GlobalDocSearchResponse} from "@/models/globalDoc";
+import {useLawStore} from "@/store/law";
+import {useContractStore} from "@/store/contract";
+import {LawSearchRecord} from "@/models/law";
 
-export const useLawStore = defineStore('law', {
+export const useGlobalDocsStore = defineStore('globalDocs', {
   state: () => ({
-    laws: [] as LawSearchRecord[],
-    selectedLaw: {} as LawSearchRecord,
+    docs: [] as GlobalDocSearchRecord[],
     page: 1,
-    itemsPerPage: 10,
+    itemsPerPage: 25,
     totalNumOfRecords: 0,
     query: '',
     isLoading: false,
@@ -17,40 +19,30 @@ export const useLawStore = defineStore('law', {
 
   },
   actions: {
-    setSelectedLaw(law: LawSearchRecord) {
-      this.selectedLaw = law
-    },
-    async index(file: File) {
-      const formData = new FormData()
-      formData.append('file', file)
-
-      try {
-        this.isLoading = true
-
-        await axios.post('api/law', formData)
-
-        this.hasError = false
-        this.isLoading = false
-      }
-      catch (err) {
-        console.error(err)
-        this.hasError = true
-        this.isLoading = false
-      }
+    setSelectedDoc(doc: GlobalDocSearchRecord) {
+      const lawStore = useLawStore()
+      const contractStore = useContractStore()
+      const docAny = doc as any
+      docAny.content = { ...doc }
+      if (doc.index === 'law')
+        lawStore.setSelectedLaw(docAny)
+      else
+        contractStore.setSelectedContract(docAny)
     },
     async search() {
       try {
         this.isLoading = true
 
-        const data = (this.query)? { content: this.query } : {}
-        const response = await axios.post<LawSearchResponse>(
-          'api/law/simple-search?' +
+        const data = { query: this.query }
+        const response = await axios.post<GlobalDocSearchResponse>(
+          'api/global/search?' +
           new URLSearchParams({
             page: (this.page - 1).toString(),
             size: this.itemsPerPage.toString()
           }),
           data)
-        this.laws = response.data.content
+        this.docs = response.data.content
+        console.log(this.docs)
         this.totalNumOfRecords = response.data.totalElements
 
         this.isLoading = false

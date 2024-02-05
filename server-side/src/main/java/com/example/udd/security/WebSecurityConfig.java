@@ -57,6 +57,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/contract/file").permitAll()
                         .requestMatchers("/contract/**").hasAuthority("CONTRACT")
                         .requestMatchers("/law/simple-search").permitAll()
+                        .requestMatchers("/law/file").permitAll()
                         .requestMatchers("/law/**").hasAuthority("LAW")
                         .anyRequest().authenticated()
                 )

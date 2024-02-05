@@ -5,6 +5,7 @@ import {useContractStore} from "@/store/contract";
 import {storeToRefs} from "pinia";
 import {ref} from "vue";
 import {LawSearchRecord} from "@/models/law";
+import ContractOverview from "@/components/ContractOverview.vue";
 
 const queryExample = 'example: firstName:marko AND lastName:"Rapic"'
 
@@ -42,14 +43,6 @@ const headers = [
   }
 ]
 
-const isOverviewDialogActive = ref(false)
-const selectedContract = ref<ContractSearchRecord>({} as ContractSearchRecord)
-
-const showOverview = (contract: ContractSearchRecord) => {
-  selectedContract.value = contract
-  isOverviewDialogActive.value = true
-}
-
 const downloadFile = async (contract: ContractSearchRecord) => {
   const response = await contractStore.downloadFile(contract.content.serverFilename)
   const blob = new Blob([response.data], { type: "application/pdf" });
@@ -61,12 +54,6 @@ const downloadFile = async (contract: ContractSearchRecord) => {
   document.body.appendChild(downloadLink)
   downloadLink.click()
   document.body.removeChild(downloadLink)
-}
-
-const hasHighlights = (contract: ContractSearchRecord) => {
-  if (!contract.highlightFields)
-    return false
-  else return Object.keys(contract.highlightFields).length !== 0;
 }
 
 const fields = [
@@ -139,33 +126,19 @@ const distance = ref(1)
     >
       <template #item.actions="{ item }">
         <div class="text-right">
-          <v-icon class="mr-2" @click="showOverview(item)">mdi-eye</v-icon>
-          <v-icon @click="downloadFile(item)">mdi-download</v-icon>
+          <v-dialog width="1200">
+            <template v-slot:activator="{ props }">
+              <v-icon v-bind="props" icon="mdi-eye" @click="contractStore.setSelectedContract(item)"> </v-icon>
+            </template>
+            <template v-slot:default="{ isActive }">
+              <ContractOverview></ContractOverview>
+            </template>
+          </v-dialog>
+          <v-icon class="ml-1" @click="downloadFile(item)">mdi-download</v-icon>
         </div>
       </template>
     </v-data-table-server>
   </div>
-  <v-dialog v-model="isOverviewDialogActive" width="1200">
-    <template #default="{ isActive }">
-      <v-card class="pa-2">
-        <h2 class="mb-5">Contract record overview</h2>
-        <span><b>Title:</b> {{ selectedContract.content.title }}</span>
-        <span class="mt-2"><b>Signed by:</b> {{ selectedContract.content.firstName + ' ' + selectedContract.content.lastName }}</span>
-        <span class="mt-2"><b>Government name:</b> {{ selectedContract.content.governmentName }}</span>
-        <span class="mt-2"><b>Level of administration:</b> {{ selectedContract.content.levelOfAdministration }}</span>
-        <span class="mt-5"><b>Contract document content:</b></span>
-        <div class="content-container">
-          {{ selectedContract.content.content }}
-        </div>
-        <div v-if="hasHighlights(selectedContract)" class="mt-5">
-          <span><b>Highlighted by:</b></span>
-          <div v-for="highlight in selectedContract.highlightFields.content">
-            <span v-html="highlight"></span>
-          </div>
-        </div>
-      </v-card>
-    </template>
-  </v-dialog>
 </template>
 
 <style scoped>
@@ -173,13 +146,5 @@ const distance = ref(1)
   display: flex;
   flex-direction: column;
   width: 70%;
-}
-
-.content-container {
-  max-height: 500px;
-  overflow-y: auto;
-  border: 1px solid #ccc; /* Optional: add border for styling */
-  border-radius: 5px;
-  padding: 10px;
 }
 </style>
